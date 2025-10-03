@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: the user creates a new note using the single-page version of the app.
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/blade
+    activate server
+
+    Note right of browser: The browser executes the JavaScript code that fetches the JSON from the server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{"message":"note created"}, ... ]
+    deactivate server
+
+    Note right of browser: The browser executes the callback function that renders the notes
