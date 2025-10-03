@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+Note right of browser: the user goes to the single-page app version of the notes app
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document + CSS file + JS file
+    deactivate server
+
+ Note right of browser: The browser executes the callback function that renders the notes
